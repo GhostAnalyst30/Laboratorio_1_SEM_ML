@@ -19,11 +19,10 @@ class StorageManager:
 
         self._write_queue: asyncio.Queue = asyncio.Queue()
         self._writer_task: asyncio.Task = None
-        self._start_writer()
 
-    def _start_writer(self):
-        loop = asyncio.get_event_loop()
-        self._writer_task = loop.create_task(self._writer_loop())
+    async def start(self):
+        if self._writer_task is None:
+            self._writer_task = asyncio.create_task(self._writer_loop())
 
     async def _writer_loop(self):
         while True:
@@ -37,11 +36,13 @@ class StorageManager:
     async def write_batch_async(self, states: list[ApartmentState]):
         if not states:
             return
+        await self.start()
         await self._write_queue.put(states)
 
     async def write_aggregated_async(self, states: list[ApartmentState], period: str):
         if not states:
             return
+        await self.start()
         batch_id = f"{states[0].timestamp}_{period}"
         path = self.data_root / "aggregated"
         path.mkdir(parents=True, exist_ok=True)
