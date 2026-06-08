@@ -29,15 +29,15 @@ export default function Floor2D({ towerId, floorNumber, index }: Props) {
       }}
       transition={{ duration: 0.3, delay: index * 0.08 }}
       onClick={() => setSelectedFloor(floorNumber)}
-      className="relative cursor-pointer rounded-lg px-1.5 py-1.5"
+      className="relative cursor-pointer rounded-lg px-1.5 py-1.5 transition-colors"
       style={{
-        border: isHighlighted ? '1px solid rgba(99,102,241,0.25)' : '1px solid transparent',
+        border: isHighlighted ? '1px solid rgba(99,102,241,0.25)' : '1px solid rgba(255,255,255,0.06)',
       }}
     >
       <div className="flex items-center gap-2">
         <motion.span
           className="text-[9px] font-mono select-none shrink-0 w-4 text-right"
-          animate={{ color: isHighlighted ? 'rgba(129,140,248,0.6)' : 'rgba(148,163,184,0.25)' }}
+          animate={{ color: isHighlighted ? 'rgba(129,140,248,0.8)' : 'rgba(148,163,184,0.45)' }}
           transition={{ duration: 0.2 }}
         >
           {floorNumber}

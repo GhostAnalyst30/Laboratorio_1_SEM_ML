@@ -71,8 +71,8 @@ export default function Tower2D({ towerId, index }: Props) {
             : 'none',
         }}
         transition={{ duration: 0.3 }}
-        className="rounded-xl border bg-white/[0.02] overflow-hidden"
-        style={{ borderWidth: 1 }}
+        className="rounded-xl border overflow-hidden"
+        style={{ borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)', backgroundColor: 'rgba(255,255,255,0.04)' }}
       >
         <div className="px-3 py-3">
           <div className="flex flex-col gap-0.5">

@@ -12,10 +12,10 @@ interface Props {
 }
 
 const COLORS = {
-  default: '#1e293b',
-  hover: '#334155',
+  default: '#1a1d2e',
+  hover: '#2a2e45',
   selected: '#818cf8',
-  border: '#334155',
+  border: '#3d4160',
   borderSelected: '#818cf8',
 }
 
