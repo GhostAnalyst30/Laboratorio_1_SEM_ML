@@ -1,0 +1,51 @@
+import pyarrow as pa
+
+
+APARTMENT_STATE_SCHEMA = pa.schema([
+    pa.field("timestamp", pa.uint64()),
+    pa.field("apartment_id", pa.utf8()),
+    pa.field("tower", pa.utf8()),
+    pa.field("floor", pa.uint8()),
+    pa.field("apartment_number", pa.uint8()),
+    pa.field("temperature", pa.float32()),
+    pa.field("humidity", pa.float32()),
+    pa.field("wind_speed", pa.float32()),
+    pa.field("rain", pa.float32()),
+    pa.field("solar_radiation", pa.float32()),
+    pa.field("air_quality", pa.float32()),
+    pa.field("pressure", pa.float32()),
+    pa.field("num_people_present", pa.uint8()),
+    pa.field("occupancy_state", pa.utf8()),
+    pa.field("activity_type", pa.utf8()),
+    pa.field("water_liters", pa.float32()),
+    pa.field("water_cost", pa.float32()),
+    pa.field("electricity_wh", pa.float32()),
+    pa.field("electricity_cost", pa.float32()),
+    pa.field("gas_m3", pa.float32()),
+    pa.field("gas_cost", pa.float32()),
+    pa.field("internet_gb", pa.float32()),
+    pa.field("internet_cost", pa.float32()),
+    pa.field("battery_charge", pa.float32()),
+    pa.field("solar_generation", pa.float32()),
+    pa.field("comfort_score", pa.float32()),
+    pa.field("sustainability_score", pa.float32()),
+    pa.field("scenario", pa.utf8()),
+])
+
+
+AGGREGATED_SCHEMA = pa.schema([
+    pa.field("timestamp", pa.uint64()),
+    pa.field("apartment_id", pa.utf8()),
+    pa.field("tower", pa.utf8()),
+    pa.field("floor", pa.uint8()),
+    pa.field("apartment_number", pa.uint8()),
+    pa.field("period_type", pa.utf8()),
+    pa.field("total_water_liters", pa.float32()),
+    pa.field("total_electricity_wh", pa.float32()),
+    pa.field("total_gas_m3", pa.float32()),
+    pa.field("total_internet_gb", pa.float32()),
+    pa.field("avg_comfort_score", pa.float32()),
+    pa.field("avg_sustainability_score", pa.float32()),
+    pa.field("avg_temperature", pa.float32()),
+    pa.field("avg_humidity", pa.float32()),
+])
